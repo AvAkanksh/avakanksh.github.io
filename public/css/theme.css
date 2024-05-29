@@ -1,7 +1,11 @@
 /* light mode */
-.light > *{
+.light>* {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
+}
+
+#brand-logo {
+    content: url('/images/fav.png') !important; 
 }
 
 /* dark mode */

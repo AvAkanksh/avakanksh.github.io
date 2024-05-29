@@ -53,10 +53,10 @@ Menus:
     #   weight: 2
 
 params:
-  title: "My Portfolio"
+  title: "Av Akanksh Portfolio"
   description: This website is Av Akanksh's Portfolio
   # staticPath: ""  # The path to serve the static files from
-  favicon: "/fav.png"
+  favicon: "/images/fav-dark.png"
 
   # Whether to serve bootstrap css and js files from CDN or not. Can be set to true, "css" or "js" to choose between
   # serving both, only the css, or only the js files through the CDN. Any other value will make so that CDN is not used.
@@ -139,13 +139,17 @@ params:
       newPage: false
     socialLinks:
       fontAwesomeIcons:
+        - icon: fab fa-linkedin
+          url : https://www.linkedin.com/in/av-akanksh/
         - icon: fab fa-github
-          url: https://example.com
+          url: https://github.com/AvAkanksh
+        - icon: fab fa-youtube
+          url : https://www.youtube.com/@avakanksh
         - icon: fab fa-x-twitter
-          url: https://example.com
-      customIcons:
-        - icon: /fav.png
-          url: "https://example.com"
+          url: https://x.com/AvAkanksh
+      # customIcons:
+      #   - icon: /fav.png
+      #     url: "https://example.com"
 
   # About
   about:
@@ -153,9 +157,8 @@ params:
     title: "About Me"
     image: "/images/profilePic2.png"
     content: |-
-      I am a software developer with a passion for web development. I have a background in computer science and mathematics, and I have a strong interest in the intersection of technology and art. I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. 
+      I am a software developer with a passion for web development. I have a background in Electrical Engineering , and I have a strong interest in the intersection of technology and art. I am actively seeking opportunities in both Data Science and Software Development roles. . 
 
-      I am currently working on a project that will be used to help people find the best way to get around the city.
     skills:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
@@ -165,72 +168,75 @@ params:
         - "JavaScript"
         - "React"
         - "Node"
-        - "Express"
+        - "Spring Boot"
+        - "Flask"
 
   # Experience
   experience:
     enable: true
     # title: "Custom Name"
     items:
-      - job: "Senior Software Developer"
-        company: "Facebook"
-        companyUrl: "https://example.com"
-        date: "Jan 2022 - present"
+      - job: "Software Developer"
+        company: "Paytm"
+        companyUrl: "https://paytm.com/"
+        date: "Jan 2023 - Nov 2023"
         featuredLink:
-          enable: true
+          enable: false
           name: "View the project"
           url: "https://example.com"
-        content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
-
-      - job: "Software Developer"
-        company: "Amazon"
-        companyUrl: "https://example.com"
-        date: "Sep 2020 - Dec 2021"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
-        info:
-          enable: true
-          content: I worked as a software developer for more than one year in Amazon.
-        content: |
-          I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
-
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
-
-      - job: "Junior Software Developer"
-        company: "Apple"
-        companyUrl: "https://example.com"
-        date: "Jan 2020 - Aug 2020"
         info:
           enable: false
+        content: "I worked as a software developer at [Paytm](https://paytm.com) in Noida, India. I was a part of BINARY Team and FSM Team working as a Backend Dev which was responsible to manage Revenue Automation and Field Service Agent management."
+
+      - job: "Jr. Data Scientist"
+        company: "Holmusk"
+        companyUrl: "https://www.holmusk.com/"
+        date: "Jun 2022 - Aug 2022"
         featuredLink:
-          enable: true
+          enable: false
           url: "https://example.com"
+        info:
+          enable: false
+          content: I worked as a Jr Data Scientist for about 3 months in Holmusk.
         content: |
-          I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
+          I worked as a Jr. Data Scientist at [Holmusk](https://www.holmusk.com/) in Singapore. I worked on their star product which is [NeuroBlu](https://www.neuroblu.ai/) and helped improving the dashboard loading time form 20s to 3s ***6.5x times faster***.
 
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
+      #     - Lead backend developer for a product.
+      #     - Created a frontend design for a product.
 
-      - job: "UI/UX Designer"
-        company: "Netflix"
-        companyUrl: "https://example.com"
-        date: "June 2017 - Nov 2019"
-        featuredLink:
-          enable: true
-          url: "https://example.com"
-        content: |
-          I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
+      # - job: "Junior Software Developer"
+      #   company: "Apple"
+      #   companyUrl: "https://example.com"
+      #   date: "Jan 2020 - Aug 2020"
+      #   info:
+      #     enable: false
+      #   featuredLink:
+      #     enable: true
+      #     url: "https://example.com"
+      #   content: |
+      #     I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
 
-          - Lead backend developer for a product.
-          - Created a frontend design for a product.
+      #     - Lead backend developer for a product.
+      #     - Created a frontend design for a product.
 
-      - job: "Product Designer"
-        company: "Google"
-        companyUrl: "https://example.com"
-        date: "Feb 2016 - Mar 2017"
-        content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
+      # - job: "UI/UX Designer"
+      #   company: "Netflix"
+      #   companyUrl: "https://example.com"
+      #   date: "June 2017 - Nov 2019"
+      #   featuredLink:
+      #     enable: true
+      #     url: "https://example.com"
+      #   content: |
+      #     I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city.
+
+      #     - Lead backend developer for a product.
+      #     - Created a frontend design for a product.
+
+      # - job: "Product Designer"
+      #   company: "Google"
+      #   companyUrl: "https://example.com"
+      #   date: "Feb 2016 - Mar 2017"
+      #   content: "I am currently working as a software developer at [example org.](https://example.com) in San Francisco, CA. I am currently working on a project that will be used to help people find the best way to get around the city."
 
   # Education
   education:
@@ -238,41 +244,53 @@ params:
     # title: "Custom Name"
     index: false
     items:
-      - title: "Master of Business Administration"
+      - title: "Bachelor of Technology in Electrical Engg"
         school:
-          name: "University of California, Berkeley"
-          url: "https://example.org"
-        date: "2013 - 2015"
-        GPA: "3.8 out of 5.0"
+          name: "Indian Institute of Technology, Tirupati"
+          url: "https://www.iittp.ac.in/"
+        date: "2018-2022"
+        GPA: "8.63 out of 10.0"
         content: |-
           Extracurricular Activities
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
-      - title: "Bachelor of Science in Computer Science"
-        school:
-          name: "Massachusetts Institute of Technology"
-          url: "https://example.org"
-        date: "2009 - 2013"
-        GPA: "3.9 out of 5.0"
-        content: |-
-          I Publiced two papers in the ACM SIGCHI Conference on Artificial Intelligence.
-          - [Fast and Accurate Object Detection with a Single Convolutional Neural Network](https://example.com)
-          - Face mask detection using a single convolutional neural network.
+            - Placement Representative for Electrical Dept for 2022 placement season. 
+            - Part of Coding Club, Robotics Club.
+            - Secured 3rd position in Inter IIT Tech meet for Terrace Farming Robot Competition.
+      # - title: "Bachelor of Science in Computer Science"
+      #   school:
+      #     name: "Massachusetts Institute of Technology"
+      #     url: "https://example.org"
+      #   date: "2009 - 2013"
+      #   GPA: "3.9 out of 5.0"
+      #   content: |-
+      #     I Publiced two papers in the ACM SIGCHI Conference on Artificial Intelligence.
+      #     - [Fast and Accurate Object Detection with a Single Convolutional Neural Network](https://example.com)
+      #     - Face mask detection using a single convolutional neural network.
 
-          Extracurricular Activities
-            - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
+      #     Extracurricular Activities
+      #       - Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      #       - Tempora esse, eaque delectus nulla quo doloribus itaque expedita alias natus optio totam maxime nihil excepturi velit a animi laborum hic similique.
+      #   featuredLink:
+      #     enable: true
+      #     name: "My academic record"
+      #     url: "https://example.com"
+      - title: "Intermediate Board"
+        school:
+          name: "Sri Chaitanya Junior Kalasala, DD Colony"
+          url: "https://srichaitanya.net/"
+        date: '2016 - 2018'
+        GPA: "955 out of 1000"
         featuredLink:
-          enable: true
-          name: "My academic record"
+          enable: false
           url: "https://example.com"
+
       - title: "High School"
         school:
-          name: "Thomas Jefferson High School for Science and Technology."
-          url: "https://example.org"
-        GPA: "4.2 out of 5.0"
+          name: "Sri Chaitanya School, DD Colony"
+          url: "https://srichaitanyaschool.net/"
+        date: '2014 - 2016'
+        GPA: "9.5 out of 10"
         featuredLink:
-          enable: true
+          enable: false
           url: "https://example.com"
 
   # Achievements
