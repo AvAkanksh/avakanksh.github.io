@@ -298,72 +298,75 @@ params:
     enable: true
     # title: "Custom Name"
     items:
-      - title: Google kickstart runner
-        content: I solved all problems with optimal solution.
-        url: https://example.com
-        image: /images/achievment.jpg
-      - title: Facebook Hackathon Winner
-        content: Developed a product using Artificial Intelligence.
-        image: /images/achievment.jpg
-      - title: Hugo Profile
-        content: Developed a theme and getting 1K+ downloads per month.
-        url: "https://github.com/gurusabarish/hugo-profile"
-        image: /images/achievment.jpg
-      - title: Microsoft Imagine Runner
-        content: We are developed a product which can help others.
-      - title: Google Summer of Code
-        content: Contributed to a open source project.
-        url: https://example.com
+      - title: Line Follower Robot
+        content: Secured 1st place in ”The Line following Robot” competition held by TechManiacs club, IIT Tirupati in 2019
+        # url: https://example.com
+        image: /images/achievements/line_follower.png
+      - title: ArduiKnow Challenge
+        content: Secured 2nd place in ”ArduiKnow Challenge” competition held during Tirutsava 2020.
+        url: "https://unstop.com/hackathons/arduiknow-challenge-tirutsava-indian-institute-of-technology-iit-tirupati-99334"
+        image: /images/achievements/arduiKnow.png
+      - title: F.I.R.E. (Flame Imaging Robot Extinguisher)
+        content: Secured 2nd place in ”F.I.R.E”(Flame Imaging Robot Extinguisher), Technical event held during Tirutsava 2020. Built an autonomous robot which follows a black lined path and identifies candles in the maze using Computer Vision (open-cv).
+        url: "https://unstop.com/competitions/fire-flame-imaging-robot-extinguisher-tirutsava-indian-institute-of-technology-iit-tirupati-99315"
+        image: /images/achievements/fire.png
+      - title: Terrace Farming Robot
+        content: Secured 3rd place in the Terrace farming robot competition held in Inter IIT TechMeet 8.0
+        image: /images/achievements/terrace_farming_robot.png
 
   # projects
   projects:
     enable: true
     # title: "Custom Name"
     items:
-      - title: Hugo Profile
-        content: A highly customizable and mobile first Hugo template for personal portfolio and blog.
-        image: /images/projects/profile.png
+      - title: Fruit Quality Estimation
+        content: Estimate the size of the fruit from the depth maps which are extracted from the stereo images using ML techniques(BGNet Architecture).
+        image: /images/project/fruit_quality_project.png
         featured:
           name: Demo
-          link: https://hugo-profile.netlify.app
+          link: https://docs.google.com/presentation/d/1r1pFJ1ZbVZY-MnmOmhHglBDW9dW0uftC/edit#slide=id.p40
         badges:
-          - "Hugo"
-          - "Bootstrap"
-          - "Javascript"
-        links:
-          - icon: fa fa-envelope
-            url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
-          - icon: fab fa-github
-            url: https://github.com/gurusabarish/hugo-profile
-          - icon: fab fa-twitter
-            url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
+          - "Computer Vision"
+          - "Python"
+          - "Depth Estimation"
+          - "Machine Learning(Image Segmentation)"
+        # links:
+        #   - icon: fa fa-envelope
+        #     url: mailto:?subject=Hugo%20Profile%20Template&body=Check%20it%20out:%20https%3a%2f%2fhugo-profile.netlify.app%2fblog%2fmarkdown-syntax%2f
+        #   - icon: fab fa-github
+        #     url: https://github.com/gurusabarish/hugo-profile
+        #   - icon: fab fa-twitter
+        #     url: https://twitter.com/intent/tweet?text=Check+it+out:&url=https%3A%2F%2Fgithub.com%2Fgurusabarish%2Fhugo-profile
 
-      - title: Image Converter
-        content: A web app to convert image to pdf, png to jpg, png to jpg and png to webp without database using django.
-        image: /images/projects/converter.jpg
+      - title: "SURF: Speeded Up Robust Features"
+        content: The aim of the project was to look into SURF, a novel scale and rotational invariant interest point detector and descriptor and implement it using python.
+        image: /images/project/surf_project.png
         featured:
           name: Demo
-          link: https://django-converter.herokuapp.com
+          link: https://colab.research.google.com/drive/1BKqsDEgX1eI9W_s9PW2UYUeS37Hms7iX#scrollTo=8LHbaofka0Ai
         badges:
-          - "Django"
-          - "Bootstrap"
+          - "OpenCV"
+          - "Numpy"
+          - "Matplotlib"
+          - "sklearn"
+          - "Tensorflow"
+          - "Python"
         links:
-          - icon: fab fa-github
-            url: https://github.com/gurusabarish/converter
+          - icon: fab fa-youtube
+            url: https://www.youtube.com/watch?v=SqAMuEGbKH0
 
-      - title: Hugo Profile V2
-        content: A clean and simple Hugo template for personal portfolio and blog.
-        image: /images/projects/profile2.jpg
+      - title: Quantum Mechanics Simulations for Research Paper
+        content: Helped my Professor in simulations for his research paper in Quantum Mechanics which is related to explaining the complex nature of wave in simple means.
+        image: /images/project/tsn_project.png
         featured:
-          name: Demo V2
-          link: https://hugo-profile-2.netlify.app
+          name: Demo
+          link: https://avakanksh.github.io/TSNPaper/
         badges:
-          - "Hugo"
-          - "Bootstrap"
+          - "p5.js"
           - "Javascript"
         links:
           - icon: fab fa-github
-            url: https://github.com/gurusabarish/HugoProfileV2
+            url: https://github.com/AvAkanksh/TSNPaper
 
   #Contact
   contact:
@@ -371,7 +374,7 @@ params:
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
     btnName: Mail me
-    btnLink: mailto:gurusabarisha@gmail.com
+    btnLink: mailto:avakanksh1@gmail.com
     # formspree:
     #   enable: true # `contact.email` value will be ignored
     #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
@@ -386,11 +389,9 @@ params:
       enable: true
       disableFeaturedImage: false
     socialNetworks:
-      github: https://github.com
-      linkedin: https://linkedin.com
-      twitter: https://twitter.com
-      instagram: https://instagram.com
-      facebook: https://facebook.com
+      github: https://github.com/AvAkanksh
+      linkedin: https://www.linkedin.com/in/av-akanksh/
+      twitter: https://x.com/AvAkanksh
 
   # List pages like blogs and posts
   listPages:
