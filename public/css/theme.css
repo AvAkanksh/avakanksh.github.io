@@ -2,10 +2,11 @@
 .light>* {
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
-}
 
-#brand-logo {
-    content: url('/images/fav.png') !important; 
+    #brand-logo, #brand-logo2 {
+        content: url(/images/fav.png);
+    }
+
 }
 
 /* dark mode */
@@ -16,7 +17,22 @@
     --text-secondary-color: var(--text-secondary-color-dark) !important;
     --primary-color: var(--primary-color-dark);
     --secondary-color: var(--secondary-color-dark);
+
+    #brand-logo, #brand-logo2 {
+        display:flex;
+        content: url(/images/fav-dark.png);
+    }
+
 }
+
+#brand-logo_a{
+    display:flex;
+    justify-content: center;
+}
+
+/* #brand-logo {
+    content: url(/images/fav-dark.png)
+} */
 
 .text-secondary {
     color: var(--text-secondary-color) !important;
