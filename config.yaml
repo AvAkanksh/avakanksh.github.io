@@ -111,7 +111,7 @@ params:
     # searchPlaceholder: "Search"
     stickyNavBar:
       enable : true
-      # showOnScrollUp : true
+      showOnScrollUp : true
     menus:
       disableAbout: false
       disableExperience: false
