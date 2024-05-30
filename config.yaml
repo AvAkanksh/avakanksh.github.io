@@ -134,7 +134,7 @@ params:
     button:
       enable: true
       name: "Resume"
-      url: "#"
+      url: "/resume/Akanksh_resume.pdf"
       download: true
       newPage: false
     socialLinks:
