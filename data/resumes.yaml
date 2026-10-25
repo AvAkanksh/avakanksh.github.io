@@ -1,6 +1,6 @@
 # Résumé variants. Drop a new PDF in static/resume/ and add an entry here.
 # `default: true` marks the one the hero button and the preview pane open first.
-note: "Four variants of the same record, each cut for a different kind of role. All are current as of August 2026."
+note: "Four variants of the same record, each cut for a different kind of role. All are current as of October 2026."
 variants:
   - id: general
     label: "General"
