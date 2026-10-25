@@ -1,0 +1,10 @@
+{{- with . }}
+<ul class="metrics">
+  {{- range . }}
+  <div>
+    <span class="metric-value">{{ .value }}</span>
+    <span class="metric-label">{{ .label }}</span>
+  </div>
+  {{- end }}
+</ul>
+{{- end }}

@@ -1,0 +1,44 @@
+{{- $r := site.Data.resumes -}}
+{{- $default := index (where $r.variants "default" true) 0 -}}
+{{- if not $default }}{{ $default = index $r.variants 0 }}{{ end -}}
+
+<section class="section" id="resumes">
+  {{ partial "section-head.html" (dict "title" "Résumés" "count" (printf "%d variants" (len $r.variants))) }}
+  <p class="section-intro">{{ $r.note }}</p>
+
+  <div class="resume-wrap" data-resumes>
+    <div class="variants" role="group" aria-label="Résumé variants">
+      {{- range $r.variants }}
+      <button class="variant" type="button"
+              aria-pressed="{{ if eq .id $default.id }}true{{ else }}false{{ end }}"
+              data-file="{{ .file }}"
+              data-caption="{{ .label }} — {{ .pages }} page{{ if gt .pages 1 }}s{{ end }}">
+        <span class="variant-top">
+          <span class="variant-label">{{ .label }}</span>
+          <span class="variant-pages">{{ .pages }} pp</span>
+        </span>
+        <p>{{ .body }}</p>
+        <p class="mono" style="color:var(--amber-text)">{{ .for }}</p>
+      </button>
+      {{- end }}
+    </div>
+
+    <div class="preview">
+      <div class="preview-frame" data-resume-frame>
+        <p class="preview-fallback">Select a variant to preview it here.</p>
+      </div>
+      <p class="preview-bar">
+        <span class="mono" data-resume-caption></span>
+        <a class="btn btn-primary" data-resume-download href="{{ $default.file }}" download>
+          {{ partial "icon.html" "download" }}Download PDF
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <p class="entry-links resume-direct">
+    {{- range $r.variants }}
+    <a href="{{ .file }}" download>{{ partial "icon.html" "download" }}{{ .label }}</a>
+    {{- end }}
+  </p>
+</section>

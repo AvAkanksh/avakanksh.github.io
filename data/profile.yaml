@@ -1,0 +1,85 @@
+# Identity, contact and skills. Edit this file to change the hero, about and skills table.
+name: "Av Akanksh"
+fullName: "Adugani Vanjari Akanksh"
+role: "M.S. by Research, Centre for Machine Intelligence and Data Science"
+degree: "M.S. by Research"
+dept: "Centre for Machine Intelligence and Data Science"
+org: "IIT Bombay"
+orgUrl: "https://www.cmids.iitb.ac.in/"
+
+# One-line positioning used in the hero and in page metadata.
+tagline: "I build and study systems that put a number on uncertainty."
+
+# Hero paragraph. Keep it to three sentences.
+intro: |
+  My thesis forecasts arbitrage-free implied volatility surfaces on a decade of NIFTY 50
+  options. Around it I work on representation learning for time series, mechanistic
+  interpretability of language models, and the low-latency C++ that makes market data
+  tractable in the first place.
+
+# The three things the work actually divides into. Used in the hero and to tag projects.
+focus:
+  - key: quant
+    short: "Quant"
+    label: "Quantitative research"
+    note: "Volatility surfaces, derivatives pricing, market microstructure"
+    hero: true
+  - key: ml
+    short: "ML"
+    label: "Machine learning"
+    note: "Time-series tokenization, interpretability, vision restoration"
+    hero: true
+  - key: systems
+    short: "Systems"
+    label: "Low-latency systems"
+    note: "Lock-free C++, schedulers, columnar data engines"
+    hero: true
+  - key: product
+    short: "Product"
+    label: "Product engineering"
+    note: "Full-stack builds, from upload pipeline to audit ledger"
+
+email: "avakanksh1@gmail.com"
+location: "Mumbai, India"
+
+links:
+  - name: GitHub
+    handle: "AvAkanksh"
+    url: "https://github.com/AvAkanksh"
+  - name: LinkedIn
+    handle: "av-akanksh"
+    url: "https://www.linkedin.com/in/av-akanksh/"
+  - name: X
+    handle: "AvAkanksh"
+    url: "https://x.com/AvAkanksh"
+  - name: YouTube
+    handle: "avakanksh"
+    url: "https://www.youtube.com/@avakanksh"
+
+about: |
+  I am an M.S. by Research student at the Centre for Machine Intelligence and Data Science,
+  IIT Bombay, finishing a thesis on no-arbitrage implied volatility surface forecasting at the
+  IITB Citadel Research Lab.
+
+  Before IIT Bombay I spent a year at Paytm building backend services for field sales and
+  revenue automation, and a summer at Holmusk in Singapore on clinical outcome models. I
+  started in Electrical Engineering at IIT Tirupati, which is where the robotics competitions
+  further down this page come from.
+
+  The common thread is that I like problems where the correctness bar is explicit — an
+  arbitrage constraint that must hold, a float tolerance of 1e-12, a thread sanitizer that must
+  stay quiet. I am looking for quantitative research, machine learning and systems roles where
+  that is the standard.
+
+# Grouped the way the resume groups them, so the two never drift apart.
+skills:
+  - group: "Languages"
+    items: ["Python", "C++", "C", "Java", "JavaScript", "SQL", "Bash", "x86-64 asm"]
+  - group: "ML and numerics"
+    items: ["PyTorch", "JAX", "TensorFlow", "scikit-learn", "NumPy", "SciPy", "Pandas", "OpenCV"]
+  - group: "Data and infrastructure"
+    items: ["DuckDB", "QuestDB", "ClickHouse", "PostgreSQL", "MySQL", "Docker", "AWS", "NVIDIA NeMo"]
+  - group: "Web and product"
+    items: ["Next.js", "React", "React Native", "Spring Boot", "Django", "Flask", "Prisma", "Streamlit"]
+  - group: "Tools"
+    items: ["Git", "Linux", "LaTeX", "MATLAB", "Inkscape", "p5.js"]

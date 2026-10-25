@@ -1,0 +1,6 @@
+{{- /* dict "title" "..." "count" "..." */ -}}
+<div class="section-head">
+  <h2>{{ .title }}</h2>
+  <span class="section-rule"></span>
+  {{- with .count }}<span class="section-count">{{ . }}</span>{{ end }}
+</div>

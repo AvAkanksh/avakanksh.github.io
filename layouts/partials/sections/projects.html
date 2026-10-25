@@ -1,0 +1,49 @@
+{{- $pr := site.Data.projects -}}
+{{- $cats := dict -}}
+{{- range site.Data.profile.focus }}{{ $cats = merge $cats (dict .key .short) }}{{ end -}}
+
+<section class="section" id="projects">
+  {{ partial "section-head.html" (dict "title" "Projects" "count" (printf "%d" (len $pr.featured))) }}
+
+  <div class="ledger">
+    {{- range sort $pr.featured "sort" "desc" }}
+    <article class="entry">
+      <p class="entry-meta">
+        <span class="year">{{ .period }}</span>
+        <span class="cat">{{ index $cats .focus }}</span>
+      </p>
+      <div class="entry-body">
+        <h3 class="entry-title">{{ .title }}</h3>
+        {{- with .subtitle }}<p class="entry-sub">{{ . }}</p>{{ end }}
+        {{- with .venue }}<p class="entry-venue">{{ . }}</p>{{ end }}
+        <div class="entry-text">{{ .body | markdownify }}</div>
+        {{ partial "metrics.html" .metrics }}
+        {{ partial "tags.html" .tags }}
+        {{ partial "links.html" .links }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+
+  <div class="section-sub">
+    <h3>{{ $pr.earlierTitle }}</h3>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="earlier">
+    {{- range $pr.earlier }}
+    <article>
+      {{- with .image }}
+      <img src="{{ . }}" alt="" loading="lazy" width="640" height="360">
+      {{- end }}
+      <div class="earlier-body">
+        <h4>{{ .title }}</h4>
+        <p class="mono" style="color:var(--text-3);margin:0 0 .5rem">{{ .period }}</p>
+        <p>{{ .body }}</p>
+        {{ partial "tags.html" .tags }}
+        {{ partial "links.html" .links }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>

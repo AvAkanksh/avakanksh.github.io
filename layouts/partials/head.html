@@ -1,0 +1,43 @@
+{{- $profile := site.Data.profile -}}
+{{- $desc := printf "%s — %s, %s. %s" $profile.name $profile.role $profile.org $profile.tagline -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ $profile.name }} — {{ $profile.tagline }}{{ else }}{{ .Title }} · {{ $profile.name }}{{ end }}</title>
+<meta name="description" content="{{ $desc }}">
+<meta name="author" content="{{ $profile.fullName }}">
+<meta name="theme-color" content="#0d141c">
+<link rel="canonical" href="{{ .Permalink }}">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ $profile.name }} — {{ $profile.role }}, {{ $profile.org }}">
+<meta property="og:description" content="{{ $profile.tagline }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="summary">
+
+<link rel="icon" href="/images/fav-dark.png">
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+{{- with resources.Get "css/main.css" }}
+  {{- $css := . | minify | fingerprint -}}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+{{- end }}
+
+<script type="application/ld+json">
+{{- dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" $profile.fullName
+  "alternateName" $profile.name
+  "jobTitle" $profile.role
+  "email" (printf "mailto:%s" $profile.email)
+  "url" site.BaseURL
+  "affiliation" (dict "@type" "Organization" "name" $profile.org)
+  "sameAs" (apply $profile.links "index" "." "url")
+  | jsonify (dict "indent" "  ") | safeJS
+-}}
+</script>

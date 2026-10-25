@@ -1,0 +1,33 @@
+# Résumé variants. Drop a new PDF in static/resume/ and add an entry here.
+# `default: true` marks the one the hero button and the preview pane open first.
+note: "Four variants of the same record, each cut for a different kind of role. All are current as of August 2026."
+variants:
+  - id: general
+    label: "General"
+    for: "All-round applications"
+    pages: 2
+    file: "/resume/AvAkanksh_Resume_General.pdf"
+    body: "The complete record — research, industry, projects, teaching and competitions."
+    default: true
+    focus: quant
+  - id: quant
+    label: "Quantitative research"
+    for: "Quant research and trading"
+    pages: 1
+    file: "/resume/AvAkanksh_Resume_Quant.pdf"
+    body: "Volatility surface forecasting, derivatives pricing, tick data and market microstructure."
+    focus: quant
+  - id: ml
+    label: "Machine learning"
+    for: "ML, research and applied science"
+    pages: 1
+    file: "/resume/AvAkanksh_Resume_MachineLearning.pdf"
+    body: "Time-series tokenization, interpretability, foundation models and vision restoration."
+    focus: ml
+  - id: sde
+    label: "Software engineering"
+    for: "Backend and systems"
+    pages: 2
+    file: "/resume/AvAkanksh_Resume_SoftwareEngineering.pdf"
+    body: "Backend services at scale, lock-free C++, schedulers and full-stack product work."
+    focus: systems

@@ -1,0 +1,53 @@
+{{- $w := site.Data.work -}}
+{{- $cats := dict -}}
+{{- range site.Data.profile.focus }}{{ $cats = merge $cats (dict .key .short) }}{{ end -}}
+
+<section class="section" id="work">
+  {{ partial "section-head.html" (dict "title" "Research and experience" "count" (printf "%d entries" (add (len $w.research) (len $w.experience)))) }}
+
+  <div class="ledger">
+    {{- range sort $w.research "sort" "desc" }}
+    <article class="entry{{ if .lead }} entry-lead{{ end }}">
+      <p class="entry-meta">
+        <span class="year">{{ .period }}</span>
+        <span class="cat">{{ index $cats .focus }}</span>
+      </p>
+      <div class="entry-body">
+        <h3 class="entry-title">{{ .title }}</h3>
+        {{- with .venue }}<p class="entry-venue">{{ . }}</p>{{ end }}
+        {{- with .guide }}<p class="entry-venue">Guide: {{ . }}</p>{{ end }}
+        <div class="entry-text">{{ .body | markdownify }}</div>
+        {{ partial "metrics.html" .metrics }}
+        {{ partial "tags.html" .tags }}
+        {{ partial "links.html" .links }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+
+  <div class="section-sub">
+    <h3>In industry</h3>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="ledger">
+    {{- range sort $w.experience "sort" "desc" }}
+    <article class="entry">
+      <p class="entry-meta">
+        <span class="year">{{ .period }}</span>
+        <span class="cat">{{ index $cats .focus }}</span>
+      </p>
+      <div class="entry-body">
+        <h3 class="entry-title">{{ .role }}</h3>
+        <p class="entry-sub">
+          <span class="entry-org">{{ if .orgUrl }}<a href="{{ .orgUrl }}" rel="noopener" target="_blank">{{ .org }}</a>{{ else }}{{ .org }}{{ end }}</span>
+          {{- with .subtitle }}<br>{{ . }}{{ end }}
+        </p>
+        <div class="entry-text">{{ .body | markdownify }}</div>
+        {{ partial "metrics.html" .metrics }}
+        {{ partial "tags.html" .tags }}
+      </div>
+    </article>
+    {{- end }}
+  </div>
+</section>

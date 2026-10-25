@@ -1,0 +1,8 @@
+# Hugo build output — GitHub Actions builds and deploys this, it is not committed.
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Editor and OS noise
+.DS_Store
+*.swp

@@ -1,0 +1,184 @@
+# Experience, research, education and the record section.
+# `metrics` renders as the mono column on the right of each ledger row; keep to 3.
+
+experience:
+  - role: "AI Research Intern"
+    org: "Motilal Oswal Financial Services"
+    orgUrl: "https://www.motilaloswal.com/"
+    period: "May – Aug 2026"
+    sort: 2026.5
+    focus: ml
+    subtitle: "Align Before You Quantize: time-series tokenization"
+    body: |
+      Built HALO, a hyperspherical alignment framework that tokenizes financial time series onto
+      the Leech lattice, so that a continuous price series becomes a discrete vocabulary a model
+      can actually reason over. Phased training fixed the codebook collapse the naive version
+      suffered from. Written up and submitted to AAAI.
+    metrics:
+      - value: "−11.9%"
+        label: "reconstruction MSE, Indian equities"
+      - value: "3.89×"
+        label: "active codebook usage"
+      - value: "−7.5%"
+        label: "downstream MASE"
+    tags: ["PyTorch", "Vector quantization", "Lattice codes", "Forecasting"]
+
+  - role: "Software Developer, Backend"
+    org: "Paytm"
+    orgUrl: "https://paytm.com/"
+    period: "Jan – Dec 2023"
+    sort: 2023.1
+    focus: systems
+    subtitle: "Field Sales Management and BINARY teams"
+    body: |
+      Backend work on the platform 15,000+ field agents use, in Java, Spring Boot, MySQL and AWS.
+      I built a hierarchical location-based feature-flagging system so product changes could be
+      rolled out one territory at a time, a territory access-control module for agent
+      authorization, and a round-robin ticket allocator that took manual queue triage off team
+      leads. On the revenue side I replaced a manual finance workflow with 1-SAP code logic that
+      generates SAP sales orders and monthly invoices.
+    metrics:
+      - value: "15M"
+        label: "revenue records ingested monthly"
+      - value: "90%"
+        label: "of a manual finance workflow automated"
+      - value: "15 hrs"
+        label: "weekly triage removed per team lead"
+    tags: ["Java", "Spring Boot", "MySQL", "AWS", "Batch pipelines"]
+
+  - role: "Jr. Data Scientist"
+    org: "Holmusk"
+    orgUrl: "https://www.holmusk.com/"
+    period: "Jun – Aug 2022"
+    sort: 2022.6
+    focus: ml
+    subtitle: "NeuroBlu real-world evidence platform, Singapore"
+    body: |
+      Worked on patient-outcome prediction inside the NeuroBlu web application, modelling
+      structured and longitudinal clinical records with XGBoost and LSTMs. Most of my time went
+      to the dashboard backend, where the query path was doing repeated full scans.
+    metrics:
+      - value: "20s → 2s"
+        label: "dashboard query latency"
+      - value: "10×"
+        label: "faster for clinicians using it daily"
+    tags: ["Python", "XGBoost", "LSTM", "Clinical data"]
+
+research:
+  - title: "Implied Volatility Surface Forecasting"
+    period: "Aug 2025 – Aug 2026"
+    sort: 2026.8
+    focus: quant
+    lead: true
+    venue: "Master's thesis at the IITB Citadel Research Lab, submitted to the 7th International Conference on AI in Finance."
+    guide: ""
+    body: |
+      A volatility surface that violates butterfly convexity or calendar monotonicity is not just
+      inaccurate, it is a free arbitrage — so the forecast has to respect the shape of the object,
+      not only fit its values. I evaluate two spatio-temporal architectures, AF-TransVol and
+      AF-INO, over 3,417 trading days of NSE NIFTY 50 options, feeding them 44 causal market and
+      stress scalars plus three soft regime probabilities under a scale-invariant log-IV transform
+      and (ρ, z) warping. The no-arbitrage constraints are enforced in the loss, and a
+      stress-conditioned variant handles the regimes where surfaces usually break.
+    metrics:
+      - value: "5.30%"
+        label: "MAPE, state of the art on this benchmark"
+      - value: "0.910"
+        label: "R² across the surface"
+      - value: "−50%"
+        label: "static arbitrage violations"
+    tags: ["GANs", "Diffusion models", "Neural operators", "No-arbitrage constraints", "NIFTY 50"]
+
+  - title: "PARAM-1: an Indic-scale foundation model"
+    period: "Jan – May 2025"
+    sort: 2025.1
+    focus: ml
+    venue: "Written up as an R&D seminar at IIT Bombay, for the BharatGen consortium."
+    guide: "Prof. Ganesh Ramakrishnan"
+    body: |
+      PARAM-1 is a 2.9B-parameter English–Hindi bilingual model trained from scratch on 5 trillion
+      tokens. I worked on the data side: a curation pipeline in NVIDIA NeMo over FineWeb, DCLM and
+      Dolma, fastText quality classifiers, GPU-accelerated fuzzy deduplication, code and maths
+      filtration, PII removal, and custom scrapers for archive.org to reach Indic text the open
+      corpora miss.
+    metrics:
+      - value: "2.9B"
+        label: "parameters, trained from scratch"
+      - value: "5T"
+        label: "training tokens"
+      - value: "12TB"
+        label: "text curated and deduplicated"
+    tags: ["NVIDIA NeMo", "Data curation", "fastText", "Deduplication", "Hindi"]
+
+education:
+  - degree: "M.S. by Research"
+    field: "Artificial Intelligence and Data Science"
+    school: "IIT Bombay"
+    schoolUrl: "https://www.iitb.ac.in/"
+    period: "2024 – 2026"
+    score: "9.15 / 10"
+    note: "Centre for Machine Intelligence and Data Science"
+  - degree: "B.Tech"
+    field: "Electrical Engineering"
+    school: "IIT Tirupati"
+    schoolUrl: "https://www.iittp.ac.in/"
+    period: "2018 – 2022"
+    score: "8.63 / 10"
+    note: "Coding Club and Robotics Club; Placement Representative"
+  - degree: "Intermediate (XII)"
+    field: "Maths, Physics, Chemistry"
+    school: "TSBIE"
+    schoolUrl: ""
+    period: "2016 – 2018"
+    score: "95.5%"
+    note: ""
+  - degree: "Secondary (X)"
+    field: ""
+    school: "TSBSE"
+    schoolUrl: ""
+    period: "2016"
+    score: "9.5 / 10"
+    note: ""
+
+positions:
+  - title: "Teaching Assistant, DS 203 Programming for Data Science"
+    org: "IIT Bombay"
+    period: "Jan – Aug 2026"
+    body: "Graded and reviewed notebooks for 110 students, wrote the automated evaluation scripts and rubric-based grading prompts, and allocated cloud credits across the cohort."
+  - title: "System Administrator, CMInDS Department"
+    org: "IIT Bombay"
+    period: "Jul 2024 – Dec 2025"
+    body: "Ran the department's internal services: deployed osTicket and shipped features to the interview and research portals, and set up automated backups to keep them stable."
+  - title: "Placement Representative"
+    org: "IIT Tirupati"
+    period: "Jul 2021 – Jun 2022"
+    body: "Coordinated recruitment logistics and company talks for 170+ students across the Electrical Engineering batch."
+
+achievements:
+  - title: "QRT QuantQuest"
+    year: "2024"
+    rank: "Top 15"
+    body: "Top 15 of 200+ teams at IIT Bombay, and the only team entirely from Master's students."
+    image: ""
+  - title: "F.I.R.E. — Flame Imaging Robot Extinguisher"
+    year: "2020"
+    rank: "2nd"
+    body: "Built an autonomous robot that follows a black line through a maze and locates candles with OpenCV. Tirutsava, IIT Tirupati."
+    image: "/images/achievements/fire.png"
+    url: "https://unstop.com/competitions/fire-flame-imaging-robot-extinguisher-tirutsava-indian-institute-of-technology-iit-tirupati-99315"
+  - title: "ArduiKnow Challenge"
+    year: "2020"
+    rank: "2nd"
+    body: "Microcontroller design event at Tirutsava, IIT Tirupati."
+    image: "/images/achievements/arduiKnow.png"
+    url: "https://unstop.com/hackathons/arduiknow-challenge-tirutsava-indian-institute-of-technology-iit-tirupati-99334"
+  - title: "Terrace Farming Robot"
+    year: "2019"
+    rank: "3rd"
+    body: "Third among 23 IITs at Inter IIT Tech Meet 8.0."
+    image: "/images/achievements/terrace_farming_robot.png"
+  - title: "The Line Following Robot"
+    year: "2019"
+    rank: "1st"
+    body: "Algorithm design event held by the TechManiacs club, IIT Tirupati."
+    image: "/images/achievements/line_follower.png"

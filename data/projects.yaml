@@ -1,0 +1,260 @@
+# Featured projects. `focus` must be one of the keys in profile.yaml -> focus (quant / ml / systems / product).
+# `metrics` renders in the mono column; keep to 3. `links` accepts type: repo | demo | slides | video | paper.
+featured:
+  - title: "Tick-Ops"
+    subtitle: "Which engine should hold a tick store?"
+    period: "2026"
+    sort: 2026.4
+    focus: quant
+    body: |
+      I benchmarked DuckDB, QuestDB and ClickHouse against plain Pandas across five realistic tick
+      workloads on 1.05M quotes — VWAP, order-book reconstruction, as-of joins, bar aggregation and
+      range scans. The interesting part was not the timings but the correctness harness: a
+      deterministic oracle that holds every engine to a 1e-12 float tolerance, which is how I found
+      the order-book boundary leaks that monotonic sequence IDs and timestamping then fixed.
+    metrics:
+      - value: "19.5×"
+        label: "DuckDB speedup over Pandas"
+      - value: "1e-12"
+        label: "float tolerance enforced"
+      - value: "1.05M"
+        label: "quotes across 5 workloads"
+    tags: ["DuckDB", "QuestDB", "ClickHouse", "Parquet", "Market microstructure"]
+    links:
+      - type: repo
+        url: "https://github.com/AvAkanksh/tick-ops"
+
+  - title: "Derivatives pricing and volatility research platform"
+    subtitle: "Model-agnostic option pricing in JAX"
+    period: "2026"
+    sort: 2026.3
+    focus: quant
+    body: |
+      A pricing library that keeps the financial logic separate from the numerics, so a new model
+      plugs in without touching the solver. JAX handles JIT compilation and gradients. The part I
+      spent longest on was discrete cash dividends, treated with piecewise lognormal models rather
+      than the usual continuous-yield fudge, and a no-arbitrage check that compares generated
+      theoretical quotes against live bid-ask spreads.
+    metrics:
+      - value: "910µs"
+        label: "binomial valuation"
+      - value: "252ms"
+        label: "local-vol repricing"
+      - value: "34%"
+        label: "of quotes inside live spreads"
+    tags: ["JAX", "NumPy", "Local volatility", "Binomial trees", "Dividends"]
+    links:
+      - type: repo
+        url: "https://github.com/AvAkanksh/derivatives-pricing-and-volatility-research-platform"
+
+  - title: "Lock-free MPMC queue"
+    subtitle: "Getting a UDP market-data feed off the critical path"
+    period: "2025"
+    sort: 2025.11
+    focus: systems
+    body: |
+      A multi-producer, multi-consumer ring buffer in C++20 that isolates network I/O from payload
+      parsing, so a slow parser never stalls the socket read. Per-slot sequence numbers and CAS
+      atomics with explicit memory barriers replace the mutex entirely, which means no thread ever
+      blocks in the kernel. I profiled it from Python to keep the measurement harness honest.
+    metrics:
+      - value: "−56%"
+        label: "median wait time"
+      - value: "25µs"
+        label: "p99 tail latency"
+    tags: ["C++20", "Atomics", "CAS", "Memory ordering", "UDP"]
+    links:
+      - type: repo
+        url: "https://github.com/AvAkanksh/lock-free-mpmc-queue"
+
+  - title: "Lock-free Count-Min Sketch"
+    subtitle: "Concurrent frequency estimation inside BusTub"
+    period: "2026"
+    sort: 2026.2
+    focus: systems
+    body: |
+      A Count-Min Sketch for CMU's BusTub database where the counters are atomic rather than
+      mutex-guarded. Relaxed memory ordering is safe here because the hash counters are
+      independent, which is where most of the speedup comes from. Regenerating the hash closures
+      resolved a move-semantics hazard that ASAN caught.
+    metrics:
+      - value: "2.16×"
+        label: "throughput over the mutex baseline"
+      - value: "13/13"
+        label: "multi-threaded tests, clean under ASAN/LSAN"
+    tags: ["C++", "Atomics", "BusTub", "Sketches", "ASAN"]
+    links:
+      - type: repo
+        url: "https://github.com/AvAkanksh/bustub"
+
+  - title: "Chloros"
+    subtitle: "User-level threads, context switch written by hand"
+    period: "2026"
+    sort: 2026.1
+    focus: systems
+    body: |
+      A cooperative thread scheduler in C that multiplexes contexts without kernel preemption. The
+      context switch is x86-64 assembly that saves the callee-saved registers and FP state, and
+      getting the 16-byte stack alignment right under the System V ABI is most of the difficulty.
+      Validated against 64 concurrent threads and 1000-frame recursive stacks.
+    metrics:
+      - value: "64"
+        label: "concurrent threads"
+      - value: "1000"
+        label: "stack frames deep"
+    tags: ["C", "x86-64 assembly", "System V ABI", "Schedulers"]
+    links:
+      - type: repo
+        url: "https://github.com/AvAkanksh/chloros"
+
+  - title: "Interpreting emotion and persistence in LLMs"
+    subtitle: "Where in a transformer does feeling live, and how long does it last?"
+    period: "2025"
+    sort: 2025.12
+    focus: ml
+    venue: "CS 772 Deep Learning for NLP, a course project under Dr. Pushpak Bhattacharyya."
+    body: |
+      Logistic probes across four Qwen2.5 models show emotion becoming linearly separable in the
+      mid-to-late layers, distinctly from linguistic features. I then asked how long that state
+      survives a change of subject, and formulated a decay protocol that puts the emotional
+      half-life past 100 tokens. The Streamlit app lets you pick a sentence and watch activation
+      patching, token ablation and layer-wise noise injection pick out the tokens responsible.
+    metrics:
+      - value: "7,000"
+        label: "samples curated"
+      - value: "100+"
+        label: "token emotional half-life"
+      - value: "15.0%"
+        label: "CER on LoRA transliteration"
+    tags: ["Mechanistic interpretability", "Qwen2.5", "Activation patching", "LoRA", "Streamlit"]
+
+  - title: "Multi-task image restoration with LoRA-DINOv3"
+    subtitle: "One frozen backbone, two restoration heads"
+    period: "2025"
+    sort: 2025.1
+    focus: ml
+    venue: "GNR 650 Advanced Deep Learning for Image Analysis, a course project under Dr. Biplab Banerjee."
+    body: |
+      A frozen DINOv3 ViT with LoRA adapters and two PixelShuffle decoders handles
+      super-resolution and enhancement jointly. Global residual learning with a VGG perceptual
+      loss removed the checkerboard artifacts PixelShuffle usually leaves, and unfreezing on a
+      curriculum at epoch 10 was what let the two tasks stop fighting each other.
+    metrics:
+      - value: "31.22 dB"
+        label: "PSNR, DIV2K super-resolution"
+      - value: "0.8424"
+        label: "SSIM, DIV2K"
+      - value: "16.80 dB"
+        label: "PSNR, MIT-Adobe FiveK"
+    tags: ["DINOv3", "LoRA", "PixelShuffle", "Perceptual loss", "DIV2K"]
+
+  - title: "Dense-residual transformer for super-resolution"
+    subtitle: "Keeping spatial information alive through a deep network"
+    period: "2025"
+    sort: 2025.05
+    focus: ml
+    venue: "GNR 638 Machine Learning for Remote Sensing II, a course project under Dr. Biplab Banerjee."
+    body: |
+      DRCT networks built on Swin Transformers, with 0.2 residual scaling to get past the
+      information bottleneck that deep SR models hit. A three-phase loss blends L1, MSE and SSIM
+      across training milestones so edges sharpen without the texture going plastic. Trained with
+      PyTorch DDP against a joint 40×SSIM + PSNR objective.
+    tags: ["Swin Transformer", "PyTorch DDP", "Super-resolution", "Remote sensing"]
+
+  - title: "Dental crown marketplace"
+    subtitle: "Shipping an MVP where the files are 100MB CAD scans"
+    period: "2026"
+    sort: 2026.0
+    focus: product
+    body: |
+      A marketplace connecting clinics to dental labs. CAD scans are too big to proxy through an
+      application server, so uploads stream client-to-host in multi-part directly to storage,
+      leaving the server out of the data path entirely. Two labs accepting the same job at once was
+      the real bug: row-level locking through Prisma fixed it. Firebase Cloud Messaging replaced a
+      WebSocket layer that was not worth its overhead, and every state transition lands in an
+      immutable SQL audit ledger.
+    metrics:
+      - value: "100MB+"
+        label: "binary CAD scans per upload"
+    tags: ["Next.js", "React Native", "PostgreSQL", "Prisma", "Firebase"]
+    links:
+      - type: repo
+        url: "https://github.com/AvAkanksh/dental-crown-mp"
+
+earlierTitle: "Earlier work"
+earlier:
+  - title: "Quantum mechanics simulations for a research paper"
+    period: "2021"
+    focus: ml
+    body: "Interactive p5.js simulations that make the wave behaviour in my professor's paper legible to a reader rather than only to a reviewer."
+    image: "/images/project/tsn_project.png"
+    tags: ["p5.js", "JavaScript"]
+    links:
+      - type: demo
+        url: "https://avakanksh.github.io/TSNPaper/"
+      - type: repo
+        url: "https://github.com/AvAkanksh/TSNPaper"
+
+  - title: "Fruit quality estimation from stereo depth"
+    period: "2022"
+    focus: ml
+    body: "Sizing fruit from depth maps recovered from stereo image pairs with a BGNet architecture, combined with image segmentation to isolate the fruit."
+    image: "/images/project/fruit_quality_project.png"
+    tags: ["Computer vision", "Depth estimation", "BGNet", "Python"]
+    links:
+      - type: slides
+        url: "https://docs.google.com/presentation/d/1r1pFJ1ZbVZY-MnmOmhHglBDW9dW0uftC/edit#slide=id.p40"
+
+  - title: "SURF: Speeded Up Robust Features"
+    period: "2021"
+    focus: ml
+    body: "A from-scratch Python implementation of the SURF scale- and rotation-invariant interest point detector and descriptor, written to understand the paper properly."
+    image: "/images/project/surf_project.png"
+    tags: ["OpenCV", "NumPy", "Python"]
+    links:
+      - type: demo
+        url: "https://colab.research.google.com/drive/1BKqsDEgX1eI9W_s9PW2UYUeS37Hms7iX"
+      - type: video
+        url: "https://www.youtube.com/watch?v=SqAMuEGbKH0"
+
+# Smaller public repositories. These render as a compact grid.
+openSourceNote: "Smaller things I keep in public — implementations I write to understand a paper, tools I needed, and practice logs."
+openSource:
+  - name: "ML_Algorithms_From_Scratch"
+    lang: "Jupyter"
+    body: "Classical ML algorithms implemented from first principles, no scikit-learn."
+  - name: "credit-risk-modeling-quant-project"
+    lang: "Python"
+    body: "Probability of default, loss given default and exposure at default models."
+  - name: "Mechanisms-of-Projective-Composition-of-Diffusion-Models-Blog"
+    lang: "HTML"
+    body: "A written walkthrough of how diffusion models compose concepts."
+    label: "Diffusion composition blog"
+  - name: "Build_LLM_from_scratch"
+    lang: "Python"
+    body: "Working through Sebastian Raschka's build-an-LLM series end to end."
+  - name: "DailyQuantPrep"
+    lang: "Python"
+    body: "A daily log of quant problems and the code I wrote for each."
+  - name: "JaneStreet-Puzzles"
+    lang: "Python"
+    body: "My attempts at Jane Street's monthly puzzles."
+  - name: "mpv-youtube-search"
+    lang: "Lua"
+    body: "An mpv plugin that searches and plays YouTube without leaving the player."
+  - name: "simple-tcp-chat-room-in-python"
+    lang: "Python"
+    body: "A TCP chat server and client built on raw sockets."
+  - name: "System-Design-Practice"
+    lang: "Java"
+    body: "Implementations of the system design patterns I work through."
+  - name: "Learn-DP-in-200-problems"
+    lang: "C++"
+    body: "A structured route through dynamic programming, 200 problems deep."
+  - name: "My-Python-Codes"
+    lang: "Jupyter"
+    body: "Scripts written for fun, kept because they were useful twice."
+  - name: "algo-trading-with-python-from-scratch-dr-tom-starke"
+    lang: "Jupyter"
+    body: "Notebooks from Tom Starke's algorithmic trading course."
+    label: "algo-trading-from-scratch"

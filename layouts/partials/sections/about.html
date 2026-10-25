@@ -1,0 +1,21 @@
+{{- $p := site.Data.profile -}}
+<section class="section" id="about">
+  {{ partial "section-head.html" (dict "title" "About") }}
+  <div class="entry-text">{{ $p.about | markdownify }}</div>
+
+  <div class="section-sub">
+    <h3>What I work with</h3>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="skills">
+    {{- range $p.skills }}
+    <div class="skill-row">
+      <span class="skill-group">{{ .group }}</span>
+      <ul class="skill-items">
+        {{- range .items }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </div>
+    {{- end }}
+  </div>
+</section>

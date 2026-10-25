@@ -1,0 +1,19 @@
+{{- $pr := site.Data.projects -}}
+<section class="section" id="opensource">
+  {{ partial "section-head.html" (dict "title" "Open source" "count" "github.com/AvAkanksh") }}
+  <p class="section-intro">{{ $pr.openSourceNote }}</p>
+
+  <div class="repos">
+    {{- range $pr.openSource }}
+    <a class="repo" href="https://github.com/AvAkanksh/{{ .name }}" rel="noopener" target="_blank">
+      <span class="repo-lang">{{ .lang }}</span>
+      <span class="repo-name">{{ with .label }}{{ . }}{{ else }}{{ .name }}{{ end }}</span>
+      <p>{{ .body }}</p>
+    </a>
+    {{- end }}
+  </div>
+
+  <p class="entry-links" style="margin-top:1.75rem">
+    <a href="https://github.com/AvAkanksh?tab=repositories" rel="noopener" target="_blank">{{ partial "icon.html" "github" }}All repositories</a>
+  </p>
+</section>

@@ -1,0 +1,64 @@
+{{- $w := site.Data.work -}}
+<section class="section" id="record">
+  {{ partial "section-head.html" (dict "title" "Record") }}
+
+  <div class="record">
+    <div>
+      <div class="section-sub" style="margin-top:0">
+        <h3>Education</h3>
+        <span class="section-rule"></span>
+      </div>
+      <div class="degrees">
+        {{- range $w.education }}
+        <div class="degree">
+          <div>
+            <h4>{{ .degree }}{{ with .field }} <span class="field">in {{ . }}</span>{{ end }}</h4>
+            <p class="school">{{ if .schoolUrl }}<a href="{{ .schoolUrl }}" rel="noopener" target="_blank">{{ .school }}</a>{{ else }}{{ .school }}{{ end }}</p>
+            {{- with .note }}<p class="note">{{ . }}</p>{{ end }}
+          </div>
+          <div class="degree-fig">
+            <b>{{ .score }}</b>{{ .period }}
+          </div>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+
+    <div>
+      <div class="section-sub" style="margin-top:0">
+        <h3>Responsibilities</h3>
+        <span class="section-rule"></span>
+      </div>
+      <div class="roles">
+        {{- range $w.positions }}
+        <div class="role">
+          <h4>{{ .title }}</h4>
+          <span class="mono">{{ .org }}, {{ .period }}</span>
+          <p>{{ .body }}</p>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+
+    <div class="record-full">
+      <div class="section-sub">
+        <h3>Competitions</h3>
+        <span class="section-rule"></span>
+      </div>
+      <div class="awards">
+        {{- range $w.achievements }}
+        <div class="award">
+          <span class="award-rank">{{ .rank }}</span>
+          <div>
+            <h4>{{ .title }}<span class="mono">{{ .year }}</span></h4>
+            <p>{{ .body }}</p>
+            {{- with .url }}
+            <p class="entry-links" style="margin-top:.7rem"><a href="{{ . }}" rel="noopener" target="_blank">{{ partial "icon.html" "external" }}Event page</a></p>
+            {{- end }}
+          </div>
+        </div>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</section>

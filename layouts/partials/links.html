@@ -1,0 +1,15 @@
+{{- with . }}
+<p class="entry-links">
+  {{- range . }}
+    {{- $icon := "external" -}}
+    {{- $label := "Visit" -}}
+    {{- if eq .type "repo" }}{{ $icon = "github" }}{{ $label = "Repository" }}
+    {{- else if eq .type "demo" }}{{ $icon = "external" }}{{ $label = "Live demo" }}
+    {{- else if eq .type "slides" }}{{ $icon = "slides" }}{{ $label = "Slides" }}
+    {{- else if eq .type "video" }}{{ $icon = "video" }}{{ $label = "Walkthrough" }}
+    {{- else if eq .type "paper" }}{{ $icon = "paper" }}{{ $label = "Paper" }}
+    {{- end -}}
+  <a href="{{ .url }}" rel="noopener" target="_blank">{{ partial "icon.html" $icon }}{{ with .label }}{{ . }}{{ else }}{{ $label }}{{ end }}</a>
+  {{- end }}
+</p>
+{{- end }}
