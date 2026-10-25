@@ -1,12 +1,12 @@
 {{- $p := site.Data.profile -}}
 <section class="section" id="contact">
-  {{ partial "section-head.html" (dict "title" "Get in touch") }}
+  {{ partial "section-head.html" (dict "title" "Contact") }}
 
-  <p class="contact-lede">I am looking for quantitative research, machine learning and systems roles.</p>
-  <p class="contact-note">Mail is the surest way to reach me. If you have read something here you want the detail on — a result, a design decision, the thesis — ask and I will send it.</p>
+  <p class="contact-lede">Looking for quant, ML and systems roles</p>
+  <p class="entry-text">Mail is the surest way to reach me. If you want the detail behind a result here — the thesis, a design decision, the code — ask and I will send it.</p>
 
-  <p class="hero-actions" style="margin-top:0">
-    <a class="btn btn-primary" href="mailto:{{ $p.email }}">{{ partial "icon.html" "mail" }}{{ $p.email }}</a>
+  <p class="hero-actions">
+    <a class="btn btn-accent" href="mailto:{{ $p.email }}">{{ $p.email }}</a>
   </p>
 
   <ul class="contact-list">
@@ -14,6 +14,6 @@
     <li><a href="{{ .url }}" rel="me noopener" target="_blank"><span class="k">{{ .name }}</span><span class="v">{{ .handle }}</span></a></li>
     {{- end }}
     <li><a href="mailto:{{ $p.email }}"><span class="k">Email</span><span class="v">{{ $p.email }}</span></a></li>
-    <li><span style="display:grid;grid-template-columns:7rem 1fr;gap:1rem;padding:.8rem 0;font-family:var(--mono);font-size:.875rem"><span class="k" style="color:var(--text-3)">Based in</span><span class="v">{{ $p.location }}</span></span></li>
+    <li><span class="row"><span class="k">Based in</span><span class="v">{{ $p.location }}</span></span></li>
   </ul>
 </section>

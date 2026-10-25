@@ -7,18 +7,16 @@
   <p class="section-intro">{{ $r.note }}</p>
 
   <div class="resume-wrap" data-resumes>
-    <div class="variants" role="group" aria-label="Résumé variants">
+    <div role="group" aria-label="Résumé variants">
       {{- range $r.variants }}
       <button class="variant" type="button"
               aria-pressed="{{ if eq .id $default.id }}true{{ else }}false{{ end }}"
               data-file="{{ .file }}"
+              data-label="{{ .label }}"
               data-caption="{{ .label }} — {{ .pages }} page{{ if gt .pages 1 }}s{{ end }}">
-        <span class="variant-top">
-          <span class="variant-label">{{ .label }}</span>
-          <span class="variant-pages">{{ .pages }} pp</span>
-        </span>
+        <span class="variant-label">{{ .label }}<span class="variant-pages">{{ .pages }}pp</span></span>
         <p>{{ .body }}</p>
-        <p class="mono" style="color:var(--amber-text)">{{ .for }}</p>
+        <p class="variant-for">{{ .for }}</p>
       </button>
       {{- end }}
     </div>
@@ -28,17 +26,13 @@
         <p class="preview-fallback">Select a variant to preview it here.</p>
       </div>
       <p class="preview-bar">
-        <span class="mono" data-resume-caption></span>
-        <a class="btn btn-primary" data-resume-download href="{{ $default.file }}" download>
-          {{ partial "icon.html" "download" }}Download PDF
-        </a>
+        <span class="cap" data-resume-caption></span>
+        <a class="btn btn-accent" data-resume-download href="{{ $default.file }}" download>Download PDF</a>
       </p>
     </div>
   </div>
 
-  <p class="entry-links resume-direct">
-    {{- range $r.variants }}
-    <a href="{{ .file }}" download>{{ partial "icon.html" "download" }}{{ .label }}</a>
-    {{- end }}
+  <p class="entry-links resume-direct" style="margin-top:2rem">
+    {{- range $r.variants }}<a href="{{ .file }}" download>{{ .label }}</a>{{ end }}
   </p>
 </section>

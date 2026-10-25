@@ -4,61 +4,43 @@
 
   <div class="record">
     <div>
-      <div class="section-sub" style="margin-top:0">
-        <h3>Education</h3>
-        <span class="section-rule"></span>
-      </div>
-      <div class="degrees">
-        {{- range $w.education }}
-        <div class="degree">
-          <div>
-            <h4>{{ .degree }}{{ with .field }} <span class="field">in {{ . }}</span>{{ end }}</h4>
-            <p class="school">{{ if .schoolUrl }}<a href="{{ .schoolUrl }}" rel="noopener" target="_blank">{{ .school }}</a>{{ else }}{{ .school }}{{ end }}</p>
-            {{- with .note }}<p class="note">{{ . }}</p>{{ end }}
-          </div>
-          <div class="degree-fig">
-            <b>{{ .score }}</b>{{ .period }}
-          </div>
+      <h3 class="sub-head" style="margin-top:0">Education</h3>
+      {{- range $w.education }}
+      <div class="degree">
+        <div class="degree-top">
+          <h4>{{ .degree }}{{ with .field }}, {{ . }}{{ end }}</h4>
+          <span class="score display">{{ .score }}</span>
         </div>
-        {{- end }}
+        <p class="when">{{ if .schoolUrl }}<a href="{{ .schoolUrl }}" rel="noopener" target="_blank">{{ .school }}</a>{{ else }}{{ .school }}{{ end }} &nbsp;/&nbsp; {{ .period }}</p>
+        {{- with .note }}<p>{{ . }}</p>{{ end }}
       </div>
+      {{- end }}
     </div>
 
     <div>
-      <div class="section-sub" style="margin-top:0">
-        <h3>Responsibilities</h3>
-        <span class="section-rule"></span>
+      <h3 class="sub-head" style="margin-top:0">Responsibilities</h3>
+      {{- range $w.positions }}
+      <div class="role">
+        <h4>{{ .title }}</h4>
+        <p class="when">{{ .org }} &nbsp;/&nbsp; {{ .period }}</p>
+        <p>{{ .body }}</p>
       </div>
-      <div class="roles">
-        {{- range $w.positions }}
-        <div class="role">
-          <h4>{{ .title }}</h4>
-          <span class="mono">{{ .org }}, {{ .period }}</span>
-          <p>{{ .body }}</p>
-        </div>
-        {{- end }}
-      </div>
+      {{- end }}
     </div>
 
     <div class="record-full">
-      <div class="section-sub">
-        <h3>Competitions</h3>
-        <span class="section-rule"></span>
-      </div>
-      <div class="awards">
-        {{- range $w.achievements }}
-        <div class="award">
-          <span class="award-rank">{{ .rank }}</span>
-          <div>
-            <h4>{{ .title }}<span class="mono">{{ .year }}</span></h4>
-            <p>{{ .body }}</p>
-            {{- with .url }}
-            <p class="entry-links" style="margin-top:.7rem"><a href="{{ . }}" rel="noopener" target="_blank">{{ partial "icon.html" "external" }}Event page</a></p>
-            {{- end }}
-          </div>
+      <h3 class="sub-head">Competitions</h3>
+      {{- range $w.achievements }}
+      <div class="award">
+        <span class="award-rank display">{{ .rank }}</span>
+        <div>
+          <h4>{{ .title }}</h4>
+          <p class="when">{{ .year }}</p>
+          <p>{{ .body }}</p>
+          {{- with .url }}<p class="entry-links" style="margin-top:.8rem"><a href="{{ . }}" rel="noopener" target="_blank">Event page</a></p>{{ end }}
         </div>
-        {{- end }}
       </div>
+      {{- end }}
     </div>
   </div>
 </section>

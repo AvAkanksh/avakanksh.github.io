@@ -5,44 +5,31 @@
 <section class="section" id="projects">
   {{ partial "section-head.html" (dict "title" "Projects" "count" (printf "%d" (len $pr.featured))) }}
 
-  <div class="ledger">
-    {{- range sort $pr.featured "sort" "desc" }}
-    <article class="entry">
-      <p class="entry-meta">
-        <span class="year">{{ .period }}</span>
-        <span class="cat">{{ index $cats .focus }}</span>
-      </p>
-      <div class="entry-body">
-        <h3 class="entry-title">{{ .title }}</h3>
-        {{- with .subtitle }}<p class="entry-sub">{{ . }}</p>{{ end }}
-        {{- with .venue }}<p class="entry-venue">{{ . }}</p>{{ end }}
-        <div class="entry-text">{{ .body | markdownify }}</div>
-        {{ partial "metrics.html" .metrics }}
-        {{ partial "tags.html" .tags }}
-        {{ partial "links.html" .links }}
-      </div>
-    </article>
-    {{- end }}
-  </div>
+  {{- range $i, $e := sort $pr.featured "sort" "desc" }}
+  <article class="entry">
+    <p class="entry-no display">{{ printf "%02d" (add $i 1) }}</p>
+    <div>
+      <h3 class="entry-title">{{ $e.title }}</h3>
+      <p class="entry-when">{{ $e.period }} &nbsp;/&nbsp; <b>{{ index $cats $e.focus }}</b></p>
+      {{- with $e.subtitle }}<p class="entry-sub">{{ . }}</p>{{ end }}
+      {{- with $e.venue }}<p class="entry-venue">{{ . }}</p>{{ end }}
+      <div class="entry-text">{{ $e.body | markdownify }}</div>
+      {{ partial "metrics.html" $e.metrics }}
+      {{ partial "tags.html" $e.tags }}
+      {{ partial "links.html" $e.links }}
+    </div>
+  </article>
+  {{- end }}
 
-  <div class="section-sub">
-    <h3>{{ $pr.earlierTitle }}</h3>
-    <span class="section-rule"></span>
-  </div>
-
-  <div class="earlier">
+  <h3 class="sub-head">{{ $pr.earlierTitle }}</h3>
+  <div class="earlier" data-reveal>
     {{- range $pr.earlier }}
     <article>
-      {{- with .image }}
-      <img src="{{ . }}" alt="" loading="lazy" width="640" height="360">
-      {{- end }}
-      <div class="earlier-body">
-        <h4>{{ .title }}</h4>
-        <p class="mono" style="color:var(--text-3);margin:0 0 .5rem">{{ .period }}</p>
-        <p>{{ .body }}</p>
-        {{ partial "tags.html" .tags }}
-        {{ partial "links.html" .links }}
-      </div>
+      {{- with .image }}<img src="{{ . }}" alt="" loading="lazy" width="640" height="480">{{ end }}
+      <h4>{{ .title }}</h4>
+      <p class="entry-when">{{ .period }}</p>
+      <p>{{ .body }}</p>
+      {{ partial "links.html" .links }}
     </article>
     {{- end }}
   </div>

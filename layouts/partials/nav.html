@@ -1,28 +1,9 @@
-{{- $profile := site.Data.profile -}}
-{{- $nav := site.Params.sections -}}
-
-<nav class="spine" aria-label="Sections">
-  <a href="#main">
-    <span class="spine-name">{{ $profile.name }}</span>
-    <span class="spine-role mono">{{ $profile.degree }}<br>{{ $profile.org }}</span>
-  </a>
-  <ul class="spine-nav">
-    {{- range $nav }}
-    <li><a href="#{{ .id }}" data-spy="{{ .id }}">{{ .label }}</a></li>
+{{- $p := site.Data.profile -}}
+<nav class="bar" aria-label="Primary">
+  <a class="bar-name" href="#main">{{ $p.name }}</a>
+  <span class="bar-nav">
+    {{- range site.Params.sections }}
+    <a href="#{{ .id }}">{{ .label }}</a>
     {{- end }}
-  </ul>
-  <div class="spine-foot">
-    {{- range $profile.links }}
-    <a href="{{ .url }}" rel="me noopener" target="_blank">{{ .name }}</a>
-    {{- end }}
-  </div>
+  </span>
 </nav>
-
-<div class="topbar">
-  <a class="topbar-name" href="#main">{{ $profile.name }}</a>
-  <ul class="topbar-nav">
-    {{- range $nav }}
-    <li><a href="#{{ .id }}" data-spy="{{ .id }}">{{ .label }}</a></li>
-    {{- end }}
-  </ul>
-</div>

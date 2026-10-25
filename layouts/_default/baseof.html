@@ -6,12 +6,15 @@
 <body>
   <a class="skip" href="#main">Skip to content</a>
   {{ partial "nav.html" . }}
-  <div class="shell">
-    <main class="main" id="main">
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ partial "footer.html" . }}
-  </div>
+  <main class="wrap" id="main">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+
+  {{- $gsap := "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0" }}
+  <script src="{{ $gsap }}/gsap.min.js" defer></script>
+  <script src="{{ $gsap }}/ScrollTrigger.min.js" defer></script>
+  <script src="{{ $gsap }}/SplitText.min.js" defer></script>
   {{- with resources.Get "js/site.js" }}
     {{- $js := . | minify | fingerprint -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

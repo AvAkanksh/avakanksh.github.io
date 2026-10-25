@@ -5,7 +5,7 @@
 <title>{{ if .IsHome }}{{ $profile.name }} — {{ $profile.tagline }}{{ else }}{{ .Title }} · {{ $profile.name }}{{ end }}</title>
 <meta name="description" content="{{ $desc }}">
 <meta name="author" content="{{ $profile.fullName }}">
-<meta name="theme-color" content="#0d141c">
+<meta name="theme-color" content="#ffffff">
 <link rel="canonical" href="{{ .Permalink }}">
 
 <meta property="og:type" content="website">
@@ -20,7 +20,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,400..900&family=Public+Sans:wght@400;500;600;700;800&display=swap">
 
 {{- with resources.Get "css/main.css" }}
   {{- $css := . | minify | fingerprint -}}

@@ -59,11 +59,12 @@ workflow pins 0.124.1.
   from the partials in `layouts/partials/sections/`.
 - `assets/css/main.css` and `assets/js/site.js` are processed by Hugo Pipes
   (minified and fingerprinted with subresource integrity).
-- The hero figure is a canvas wireframe of an implied volatility surface, drawn
-  in `assets/js/site.js`. It is a synthetic smile, not market data, and it stops
-  animating when off screen, when the tab is hidden, or when the visitor has
-  asked for reduced motion.
-- No Bootstrap, no jQuery, no icon font. The only external request is Google Fonts.
+- The visual direction is recorded in `DESIGN-BRIEF.md` — read it before
+  changing colour, type or motion.
+- Motion is GSAP 3.13.0 from cdnjs (pinned). Every animation uses `gsap.from()`,
+  so the page renders complete without JavaScript, and all of it is skipped
+  under `prefers-reduced-motion`.
+- No Bootstrap, no jQuery, no icon font.
 
 The `themes/hugo-profile` submodule is left over from the previous design and is
 no longer used; it can be removed with

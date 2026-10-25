@@ -1,6 +1,6 @@
-{{- $profile := site.Data.profile -}}
-<footer class="main foot">
-  <span>&copy; {{ now.Year }} {{ $profile.fullName }}</span>
-  <span>Built with <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo</a>, hosted on GitHub Pages</span>
+{{- $p := site.Data.profile -}}
+<footer class="wrap foot">
+  <span>&copy; {{ now.Year }} {{ $p.fullName }}</span>
+  <span>{{ $p.location }}</span>
   <span><a href="https://github.com/AvAkanksh/avakanksh.github.io" rel="noopener" target="_blank">Source</a></span>
 </footer>

@@ -3,18 +3,12 @@
   {{ partial "section-head.html" (dict "title" "About") }}
   <div class="entry-text">{{ $p.about | markdownify }}</div>
 
-  <div class="section-sub">
-    <h3>What I work with</h3>
-    <span class="section-rule"></span>
-  </div>
-
-  <div class="skills">
+  <h3 class="sub-head">What I work with</h3>
+  <div>
     {{- range $p.skills }}
     <div class="skill-row">
       <span class="skill-group">{{ .group }}</span>
-      <ul class="skill-items">
-        {{- range .items }}<li>{{ . }}</li>{{ end }}
-      </ul>
+      <ul class="skill-items">{{ range .items }}<li>{{ . }}</li>{{ end }}</ul>
     </div>
     {{- end }}
   </div>

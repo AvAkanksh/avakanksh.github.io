@@ -1,42 +1,23 @@
 {{- $p := site.Data.profile -}}
-<section class="hero" id="main-hero">
-  <div class="hero-copy">
-    <p class="hero-eyebrow">
-      {{ $p.degree }}<br>
-      {{ $p.dept }}<br>
-      {{ with $p.orgUrl }}<a href="{{ . }}" rel="noopener" target="_blank">{{ $p.org }}</a>{{ else }}{{ $p.org }}{{ end }}
-    </p>
+<section class="hero">
+  <h1 class="hero-name display" data-split><span>Av</span><span>Akanksh</span></h1>
 
-    <h1 class="hero-name">{{ $p.name }}</h1>
-
-    <p class="hero-lede">{{ $p.tagline }}</p>
-
-    <div class="hero-intro">{{ $p.intro | markdownify }}</div>
-
-    <ul class="hero-focus">
-      {{- range where $p.focus "hero" true }}
-      <li><b>{{ .label }}</b><span>{{ .note }}</span></li>
-      {{- end }}
-    </ul>
-
-    <p class="hero-actions">
-      <a class="btn btn-primary" href="#resumes">{{ partial "icon.html" "down" }}Résumés</a>
-      <a class="btn" href="mailto:{{ $p.email }}">{{ partial "icon.html" "mail" }}{{ $p.email }}</a>
-      <a class="btn" href="https://github.com/AvAkanksh" rel="noopener" target="_blank">{{ partial "icon.html" "github" }}GitHub</a>
-    </p>
-  </div>
-
-  <figure class="figure">
-    <div class="figure-frame">
-      <canvas id="vol-surface" width="760" height="620" role="img"
-        aria-label="Wireframe of an implied volatility surface: a pronounced smile at short maturity flattening out along the term structure, with negative skew."></canvas>
-      <div class="figure-scale" aria-hidden="true">
-        <span>implied vol</span><i></i>
-      </div>
-    </div>
-    <figcaption>
-      Implied volatility over log-moneyness and maturity — the surface my thesis
-      forecasts, drawn here from a synthetic smile rather than market data.
-    </figcaption>
+  <figure class="hero-figure">
+    <img src="/images/profilePic.png" width="907" height="907"
+         alt="Av Akanksh" fetchpriority="high">
   </figure>
+
+  <div class="hero-meta">
+    <div>
+      <p class="hero-role">{{ $p.degree }}, {{ $p.dept }}, {{ $p.org }}.</p>
+    </div>
+    <div>
+      <div class="hero-intro">{{ $p.intro | markdownify }}</div>
+      <p class="hero-actions">
+        <a class="btn btn-accent" href="#resumes">Résumés</a>
+        <a class="btn" href="mailto:{{ $p.email }}">Email</a>
+        <a class="btn" href="https://github.com/AvAkanksh" rel="noopener" target="_blank">GitHub</a>
+      </p>
+    </div>
+  </div>
 </section>
